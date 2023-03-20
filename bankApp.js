@@ -14,7 +14,7 @@ class BankApp {
   };
 
   makeDeposit = (amount) => {
-    amount = parseInt(amount);
+    amount = parseFloat(amount);
     if (isNaN(amount)) {
       return "The amount of deposit should be an Integer.";
     }

@@ -75,6 +75,15 @@ describe("Bank App class", () => {
       );
       expect(bankApp.getBalance()).toEqual(0);
     });
+
+    it("allows to adds deposit with decimal number to the balance", () => {
+      const bankApp = new BankApp();
+      expect(bankApp.getBalance()).toEqual(0);
+      bankApp.makeDeposit(100.33);
+      expect(bankApp.getBalance()).toEqual(100.33);
+      bankApp.makeDeposit("22.22");
+      expect(bankApp.getBalance()).toEqual(122.55);
+    });
   });
 
   describe("makeWithdrawal method", () => {
