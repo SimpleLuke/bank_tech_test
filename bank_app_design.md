@@ -61,7 +61,6 @@ class BankApp {
 ## 3. Test Examples
 
 !!! Reminder: Add Edge cases !!!
-Decimal number
 
 ```js
 // Examples
@@ -82,6 +81,10 @@ bankApp.getBalance(); // return 0
 // 3.
 const bankApp = new BankApp("1000");
 bankApp.getBalance(); // return 1000
+
+// 4.
+const bankApp = new BankApp(100.3333);
+bankApp.getBalance(); // return 100.33
 
 // makeDeposit method
 // 1.
@@ -106,7 +109,13 @@ bankApp.getBalance(); // return 100
 const bankApp = new BankApp();
 bankApp.getBalance(); // return 0
 bankApp.makeDeposit("hello"); // return 'The amount of deposit should be an Integer.'
-bankApp.getBalance();
+bankApp.getBalance(); // return 0
+
+//5.
+const bankApp = new BankApp();
+bankApp.getBalance(); // return 0
+bankApp.makeDeposit(100.3333);
+bankApp.getBalance(); // return 100.33
 
 // makeWithdrawal method
 // 1.
@@ -138,6 +147,12 @@ const bankApp = new BankApp();
 bankApp.getBalance(); // return 0
 bankApp.makeWithdrawal(100); // return 'The amount of the balance is not enough for withdrawal.'
 bankApp.getBalance(); // return 0
+
+//6.
+const bankApp = new BankApp();
+bankApp.getBalance(1000); // return 1000
+bankApp.makeWithdrawal(50.333);
+bankApp.getBalance(); // return 949.67
 
 // printStatement method
 // 1.
