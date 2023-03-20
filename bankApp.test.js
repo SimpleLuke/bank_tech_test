@@ -11,5 +11,9 @@ describe("Bank App class", () => {
     it("does not throw an error if balance is an Integer", () => {
       expect(() => new BankApp(1000)).not.toThrow();
     });
+
+    it("does not throw an error if balance is an numberic string", () => {
+      expect(() => new BankApp("1000")).not.toThrow();
+    });
   });
 });
