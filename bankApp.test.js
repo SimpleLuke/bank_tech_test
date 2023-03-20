@@ -84,5 +84,12 @@ describe("Bank App class", () => {
       bankApp.makeWithdrawal(-100);
       expect(bankApp.getBalance()).toEqual(1000);
     });
+
+    it("subtracts the withdrawal amount to the balance even it is a numberic string", () => {
+      const bankApp = new BankApp(1000);
+      expect(bankApp.getBalance()).toEqual(1000);
+      bankApp.makeWithdrawal("100");
+      expect(bankApp.getBalance()).toEqual(900);
+    });
   });
 });

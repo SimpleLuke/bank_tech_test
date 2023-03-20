@@ -22,6 +22,8 @@ class BankApp {
   };
 
   makeWithdrawal = (amount) => {
+    amount = parseInt(amount);
+
     if (amount < 0) {
       return "The amount of withdrawal should be greater than 0.";
     }
