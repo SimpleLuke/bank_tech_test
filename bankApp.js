@@ -1,5 +1,5 @@
 class BankApp {
-  constructor(balance) {
+  constructor(balance = 0) {
     if (isNaN(balance)) {
       throw new Error("Balance should be an Integer.");
     }

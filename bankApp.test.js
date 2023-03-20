@@ -24,5 +24,10 @@ describe("Bank App class", () => {
       const bankApp2 = new BankApp(2000);
       expect(bankApp2.getBalance()).toEqual(2000);
     });
+
+    it("returns 0 when there is no starting amount input", () => {
+      const bankApp = new BankApp();
+      expect(bankApp.getBalance()).toEqual(0);
+    });
   });
 });
