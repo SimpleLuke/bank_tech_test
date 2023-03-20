@@ -77,5 +77,12 @@ describe("Bank App class", () => {
       bankApp.makeWithdrawal(100);
       expect(bankApp.getBalance()).toEqual(900);
     });
+
+    it("returns a message when the input is less than 0 and the balance will remain the same", () => {
+      const bankApp = new BankApp(1000);
+      expect(bankApp.getBalance()).toEqual(1000);
+      bankApp.makeWithdrawal(-100);
+      expect(bankApp.getBalance()).toEqual(1000);
+    });
   });
 });
