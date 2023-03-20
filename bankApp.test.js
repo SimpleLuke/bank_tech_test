@@ -135,12 +135,21 @@ describe("Bank App class", () => {
       expect(bankApp.getBalance()).toEqual(0);
     });
 
-    it("allows to withdrawal with decimal number to the balance", () => {
+    it("allows to withdrawal with decimal number from the balance", () => {
       const bankApp = new BankApp(1000);
       expect(bankApp.getBalance()).toEqual(1000);
       bankApp.makeWithdrawal(50.33);
       expect(bankApp.getBalance()).toEqual(949.67);
       bankApp.makeWithdrawal("50.33");
+      expect(bankApp.getBalance()).toEqual(899.34);
+    });
+
+    it("converts the withdrawal amount with only two decimal", () => {
+      const bankApp = new BankApp(1000);
+      expect(bankApp.getBalance()).toEqual(1000);
+      bankApp.makeWithdrawal(50.333);
+      expect(bankApp.getBalance()).toEqual(949.67);
+      bankApp.makeWithdrawal("50.333");
       expect(bankApp.getBalance()).toEqual(899.34);
     });
   });
