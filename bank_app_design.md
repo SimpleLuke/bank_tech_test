@@ -117,6 +117,10 @@ bankApp.getBalance(); // return 0
 bankApp.makeDeposit(100.3333);
 bankApp.getBalance(); // return 100.33
 
+//6.
+const bankApp = new BankApp();
+bankApp.makeDeposit(100); // return 'Deposit made successfully'
+
 // makeWithdrawal method
 // 1.
 const bankApp = new BankApp(1000);
@@ -153,6 +157,10 @@ const bankApp = new BankApp();
 bankApp.getBalance(1000); // return 1000
 bankApp.makeWithdrawal(50.333);
 bankApp.getBalance(); // return 949.67
+
+//7.
+const bankApp = new BankApp(1000);
+bankApp.makeWithdrawal(100); // return 'withdrawal made successfully'
 
 // printStatement method
 // 1.
