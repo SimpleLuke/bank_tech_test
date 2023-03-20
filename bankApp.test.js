@@ -16,4 +16,13 @@ describe("Bank App class", () => {
       expect(() => new BankApp("1000")).not.toThrow();
     });
   });
+
+  describe("getBalance method", () => {
+    it("returns the starting amount when there is no deposit and withdrawal", () => {
+      const bankApp = new BankApp(1000);
+      expect(bankApp.getBalance()).toEqual(1000);
+      const bankApp2 = new BankApp(2000);
+      expect(bankApp2.getBalance()).toEqual(2000);
+    });
+  });
 });
