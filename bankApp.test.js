@@ -100,5 +100,14 @@ describe("Bank App class", () => {
       );
       expect(bankApp.getBalance()).toEqual(1000);
     });
+
+    it("returns a message when the balance is not enough for withdrawal and the balance will remain the same", () => {
+      const bankApp = new BankApp(0);
+      expect(bankApp.getBalance()).toEqual(0);
+      expect(bankApp.makeWithdrawal(100)).toEqual(
+        "The amount of balance is not enough for withdrawal."
+      );
+      expect(bankApp.getBalance()).toEqual(0);
+    });
   });
 });

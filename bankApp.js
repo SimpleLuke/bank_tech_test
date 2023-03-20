@@ -28,6 +28,10 @@ class BankApp {
       return "The amount of withdrawal should be an Integer.";
     }
 
+    if (this.balance < amount) {
+      return "The amount of balance is not enough for withdrawal.";
+    }
+
     if (amount < 0) {
       return "The amount of withdrawal should be greater than 0.";
     }
