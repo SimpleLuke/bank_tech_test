@@ -34,6 +34,13 @@ describe("Bank App class", () => {
       const bankApp = new BankApp("1000");
       expect(bankApp.getBalance()).toEqual(1000);
     });
+
+    it("returns the amount with only two decimal", () => {
+      const bankApp = new BankApp(1000.333);
+      expect(bankApp.getBalance()).toEqual(1000.33);
+      const bankApp2 = new BankApp("1000.333");
+      expect(bankApp2.getBalance()).toEqual(1000.33);
+    });
   });
 
   describe("makeDeposit method", () => {
