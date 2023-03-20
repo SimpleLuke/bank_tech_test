@@ -14,10 +14,7 @@ class BankApp {
   };
 
   makeDeposit = (amount) => {
-    amount =
-      typeof amount === "string"
-        ? parseFloat(parseFloat(amount).toFixed(2))
-        : parseFloat(amount.toFixed(2));
+    amount = parseFloat(amount);
 
     if (isNaN(amount)) {
       return "The amount of deposit should be an Integer.";
@@ -25,7 +22,7 @@ class BankApp {
     if (amount < 0) {
       return "The amount of deposit should be greater than 0.";
     }
-    this.balance += amount;
+    this.balance = parseFloat((this.balance + amount).toFixed(2));
   };
 
   makeWithdrawal = (amount) => {
