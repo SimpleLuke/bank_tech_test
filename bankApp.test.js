@@ -59,5 +59,14 @@ describe("Bank App class", () => {
       bankApp.makeDeposit("100");
       expect(bankApp.getBalance()).toEqual(100);
     });
+
+    it("returns a message when the input is a non-numberic string and the balance will remain the same", () => {
+      const bankApp = new BankApp();
+      expect(bankApp.getBalance()).toEqual(0);
+      expect(bankApp.makeDeposit("hello")).toEqual(
+        "The amount of deposit should be an Integer."
+      );
+      expect(bankApp.getBalance()).toEqual(0);
+    });
   });
 });
