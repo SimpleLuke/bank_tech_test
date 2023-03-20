@@ -159,5 +159,12 @@ describe("Bank App class", () => {
       bankApp.makeWithdrawal("50.333");
       expect(bankApp.getBalance()).toEqual(899.34);
     });
+
+    it("returns a successful message", () => {
+      const bankApp = new BankApp(1000);
+      expect(bankApp.makeWithdrawal(100)).toEqual(
+        "withdrawal processed successfully!"
+      );
+    });
   });
 });

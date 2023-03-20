@@ -43,6 +43,8 @@ class BankApp {
     }
 
     this.balance = parseFloat((this.balance - amount).toFixed(2));
+
+    return "withdrawal processed successfully!";
   };
 }
 
