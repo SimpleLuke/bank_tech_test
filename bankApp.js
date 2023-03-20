@@ -29,7 +29,7 @@ class BankApp {
   };
 
   makeWithdrawal = (amount) => {
-    amount = parseInt(amount);
+    amount = parseFloat(amount);
 
     if (isNaN(amount)) {
       return "The amount of withdrawal should be an Integer.";
@@ -43,7 +43,7 @@ class BankApp {
       return "The amount of withdrawal should be greater than 0.";
     }
 
-    this.balance -= amount;
+    this.balance = parseFloat((this.balance - amount).toFixed(2));
   };
 }
 

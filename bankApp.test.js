@@ -85,7 +85,7 @@ describe("Bank App class", () => {
       expect(bankApp.getBalance()).toEqual(122.55);
     });
 
-    it("convert the deposit amount with only two decimal", () => {
+    it("converts the deposit amount with only two decimal", () => {
       const bankApp = new BankApp();
       expect(bankApp.getBalance()).toEqual(0);
       bankApp.makeDeposit(100.3333);
@@ -133,6 +133,15 @@ describe("Bank App class", () => {
         "The amount of balance is not enough for withdrawal."
       );
       expect(bankApp.getBalance()).toEqual(0);
+    });
+
+    it("allows to withdrawal with decimal number to the balance", () => {
+      const bankApp = new BankApp(1000);
+      expect(bankApp.getBalance()).toEqual(1000);
+      bankApp.makeWithdrawal(50.33);
+      expect(bankApp.getBalance()).toEqual(949.67);
+      bankApp.makeWithdrawal("50.33");
+      expect(bankApp.getBalance()).toEqual(899.34);
     });
   });
 });
