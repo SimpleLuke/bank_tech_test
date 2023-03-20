@@ -69,4 +69,13 @@ describe("Bank App class", () => {
       expect(bankApp.getBalance()).toEqual(0);
     });
   });
+
+  describe("makeWithdrawal method", () => {
+    it("subtracts the withdrawal amount from the balance", () => {
+      const bankApp = new BankApp(1000);
+      expect(bankApp.getBalance()).toEqual(1000);
+      bankApp.makeWithdrawal(100);
+      expect(bankApp.getBalance()).toEqual(900);
+    });
+  });
 });

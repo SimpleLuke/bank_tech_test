@@ -20,6 +20,10 @@ class BankApp {
     }
     this.balance += amount;
   };
+
+  makeWithdrawal = (amount) => {
+    this.balance -= amount;
+  };
 }
 
 module.exports = BankApp;
