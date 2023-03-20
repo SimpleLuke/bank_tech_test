@@ -93,6 +93,13 @@ describe("Bank App class", () => {
       bankApp.makeDeposit("22.2222");
       expect(bankApp.getBalance()).toEqual(122.55);
     });
+
+    it("returns a successful message", () => {
+      const bankApp = new BankApp();
+      expect(bankApp.makeDeposit(100)).toEqual(
+        "Deposit processed successfully!"
+      );
+    });
   });
 
   describe("makeWithdrawal method", () => {

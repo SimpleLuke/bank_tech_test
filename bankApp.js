@@ -23,6 +23,8 @@ class BankApp {
       return "The amount of deposit should be greater than 0.";
     }
     this.balance = parseFloat((this.balance + amount).toFixed(2));
+
+    return "Deposit processed successfully!";
   };
 
   makeWithdrawal = (amount) => {
