@@ -91,5 +91,14 @@ describe("Bank App class", () => {
       bankApp.makeWithdrawal("100");
       expect(bankApp.getBalance()).toEqual(900);
     });
+
+    it("returns a message when the input is a non-numberic string and the balance will remain the same", () => {
+      const bankApp = new BankApp(1000);
+      expect(bankApp.getBalance()).toEqual(1000);
+      expect(bankApp.makeWithdrawal("hello")).toEqual(
+        "The amount of withdrawal should be an Integer."
+      );
+      expect(bankApp.getBalance()).toEqual(1000);
+    });
   });
 });
