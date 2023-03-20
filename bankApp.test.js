@@ -84,6 +84,15 @@ describe("Bank App class", () => {
       bankApp.makeDeposit("22.22");
       expect(bankApp.getBalance()).toEqual(122.55);
     });
+
+    it("convert the deposit amount with only two decimal", () => {
+      const bankApp = new BankApp();
+      expect(bankApp.getBalance()).toEqual(0);
+      bankApp.makeDeposit(100.3333);
+      expect(bankApp.getBalance()).toEqual(100.33);
+      bankApp.makeDeposit("22.2222");
+      expect(bankApp.getBalance()).toEqual(122.55);
+    });
   });
 
   describe("makeWithdrawal method", () => {
