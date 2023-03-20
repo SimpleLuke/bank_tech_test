@@ -3,7 +3,7 @@ class BankApp {
     if (isNaN(balance)) {
       throw new Error("Balance should be an Integer.");
     }
-    this.balance = balance;
+    this.balance = parseInt(balance);
   }
 
   getBalance = () => {

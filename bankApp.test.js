@@ -29,5 +29,10 @@ describe("Bank App class", () => {
       const bankApp = new BankApp();
       expect(bankApp.getBalance()).toEqual(0);
     });
+
+    it("returns an integer when the starting amount is a numberic string", () => {
+      const bankApp = new BankApp("1000");
+      expect(bankApp.getBalance()).toEqual(1000);
+    });
   });
 });
