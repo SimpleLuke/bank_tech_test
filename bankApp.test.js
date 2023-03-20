@@ -35,4 +35,13 @@ describe("Bank App class", () => {
       expect(bankApp.getBalance()).toEqual(1000);
     });
   });
+
+  describe("makeDeposit method", () => {
+    it("adds the deposit amount to the balance", () => {
+      const bankApp = new BankApp();
+      expect(bankApp.getBalance()).toEqual(0);
+      bankApp.makeDeposit(100);
+      expect(bankApp.getBalance()).toEqual(100);
+    });
+  });
 });

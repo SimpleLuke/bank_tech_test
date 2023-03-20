@@ -9,6 +9,10 @@ class BankApp {
   getBalance = () => {
     return this.balance;
   };
+
+  makeDeposit = (amount) => {
+    this.balance += amount;
+  };
 }
 
 module.exports = BankApp;
