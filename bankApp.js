@@ -11,6 +11,7 @@ class BankApp {
   };
 
   makeDeposit = (amount) => {
+    amount = parseInt(amount);
     if (amount < 0) {
       return "The amount of deposit should be greater than 0.";
     }

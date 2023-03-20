@@ -52,5 +52,12 @@ describe("Bank App class", () => {
       );
       expect(bankApp.getBalance()).toEqual(0);
     });
+
+    it("adds the deposit amount to the balance even it is a numberic string", () => {
+      const bankApp = new BankApp();
+      expect(bankApp.getBalance()).toEqual(0);
+      bankApp.makeDeposit("100");
+      expect(bankApp.getBalance()).toEqual(100);
+    });
   });
 });
