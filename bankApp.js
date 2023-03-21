@@ -1,5 +1,6 @@
 const DateFormatter = require("./dateFormatter");
 const InputFormatter = require("./inputFormatter");
+const Transaction = require("./transaction");
 
 class BankApp {
   constructor(balance = 0) {
@@ -9,7 +10,8 @@ class BankApp {
     this.startingBalance = balance;
     this.startingDate = new Date();
     this.balance = new InputFormatter().convertToFloat(balance);
-    this.transaction = [];
+    this.transaction = new Transaction();
+    // this.transaction = [];
   }
 
   getBalance = () => {
@@ -28,12 +30,19 @@ class BankApp {
     const newBalance = parseFloat((this.balance + amount).toFixed(2));
     this.balance = newBalance;
 
-    this.transaction.unshift({
-      date: this.getFormattedDate(new Date()),
-      type: "credit",
-      amount: amount.toFixed(2),
-      balance: newBalance.toFixed(2),
-    });
+    this.transaction.createTransaction(
+      this.getFormattedDate(new Date()),
+      "credit",
+      amount,
+      newBalance
+    );
+
+    // this.transaction.unshift({
+    //   date: this.getFormattedDate(new Date()),
+    //   type: "credit",
+    //   amount: amount.toFixed(2),
+    //   balance: newBalance.toFixed(2),
+    // });
 
     return "Deposit processed successfully!";
   };
@@ -56,12 +65,19 @@ class BankApp {
     const newBalance = parseFloat((this.balance - amount).toFixed(2));
     this.balance = newBalance;
 
-    this.transaction.unshift({
-      date: this.getFormattedDate(new Date()),
-      type: "debit",
-      amount: amount.toFixed(2),
-      balance: newBalance.toFixed(2),
-    });
+    this.transaction.createTransaction(
+      this.getFormattedDate(new Date()),
+      "debit",
+      amount,
+      newBalance
+    );
+
+    // this.transaction.unshift({
+    //   date: this.getFormattedDate(new Date()),
+    //   type: "debit",
+    //   amount: amount.toFixed(2),
+    //   balance: newBalance.toFixed(2),
+    // });
 
     return "Withdrawal processed successfully!";
   };
@@ -73,7 +89,8 @@ class BankApp {
     )} || N/A || N/A || ${this.startingBalance.toFixed(2)}\n`;
 
     let transactionRecord = "";
-    this.transaction.forEach((element) => {
+    const transactionData = this.transaction.GetTransactionData();
+    transactionData.forEach((element) => {
       if (element.type === "debit") {
         transactionRecord += `${element.date} || N/A || ${element.amount} || ${element.balance}\n`;
       }
