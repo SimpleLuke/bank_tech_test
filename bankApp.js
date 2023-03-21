@@ -30,7 +30,7 @@ class BankApp {
 
     this.transaction.unshift({
       date: this.getFormattedDate(new Date()),
-      type: "debit",
+      type: "credit",
       amount: amount.toFixed(2),
       balance: newBalance.toFixed(2),
     });
@@ -58,7 +58,7 @@ class BankApp {
 
     this.transaction.unshift({
       date: this.getFormattedDate(new Date()),
-      type: "credit",
+      type: "debit",
       amount: amount.toFixed(2),
       balance: newBalance.toFixed(2),
     });
@@ -71,6 +71,7 @@ class BankApp {
     let startingRecord = `${this.getFormattedDate(
       this.startingDate
     )} || N/A || N/A || ${this.startingBalance.toFixed(2)}\n`;
+
     let transactionRecord = "";
     this.transaction.forEach((element) => {
       if (element.type === "debit") {
@@ -81,6 +82,7 @@ class BankApp {
         transactionRecord += `${element.date} || ${element.amount} || N/A || ${element.balance}\n`;
       }
     });
+
     let result = transactionRecord
       ? "\n" +
         tableHead +

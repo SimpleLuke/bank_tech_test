@@ -206,7 +206,7 @@ date || credit || debit || balance
       bankApp.makeDeposit(500);
       const expectedOutput = `
 date || credit || debit || balance
-13/01/2023 || N/A || 500.00 || 1500.00
+13/01/2023 || 500.00 || N/A || 1500.00
 13/01/2023 || N/A || N/A || 1000.00
 `;
       const logSpy = jest.spyOn(console, "log").mockImplementation(() => {});
@@ -221,8 +221,8 @@ date || credit || debit || balance
       bankApp.makeDeposit(1000);
       const expectedOutput = `
 date || credit || debit || balance
-13/01/2023 || N/A || 1000.00 || 2500.00
-13/01/2023 || N/A || 500.00 || 1500.00
+13/01/2023 || 1000.00 || N/A || 2500.00
+13/01/2023 || 500.00 || N/A || 1500.00
 13/01/2023 || N/A || N/A || 1000.00
 `;
       const logSpy = jest.spyOn(console, "log").mockImplementation(() => {});
@@ -236,7 +236,7 @@ date || credit || debit || balance
       bankApp.makeWithdrawal(500);
       const expectedOutput = `
 date || credit || debit || balance
-13/01/2023 || 500.00 || N/A || 500.00
+13/01/2023 || N/A || 500.00 || 500.00
 13/01/2023 || N/A || N/A || 1000.00
 `;
       const logSpy = jest.spyOn(console, "log").mockImplementation(() => {});
@@ -251,8 +251,8 @@ date || credit || debit || balance
       bankApp.makeWithdrawal(100);
       const expectedOutput = `
 date || credit || debit || balance
-13/01/2023 || 100.00 || N/A || 400.00
-13/01/2023 || 500.00 || N/A || 500.00
+13/01/2023 || N/A || 100.00 || 400.00
+13/01/2023 || N/A || 500.00 || 500.00
 13/01/2023 || N/A || N/A || 1000.00
 `;
       const logSpy = jest.spyOn(console, "log").mockImplementation(() => {});
@@ -267,8 +267,8 @@ date || credit || debit || balance
       bankApp.makeDeposit(100);
       const expectedOutput = `
 date || credit || debit || balance
-13/01/2023 || N/A || 100.00 || 600.00
-13/01/2023 || 500.00 || N/A || 500.00
+13/01/2023 || 100.00 || N/A || 600.00
+13/01/2023 || N/A || 500.00 || 500.00
 13/01/2023 || N/A || N/A || 1000.00
 `;
       const logSpy = jest.spyOn(console, "log").mockImplementation(() => {});
@@ -280,7 +280,7 @@ date || credit || debit || balance
     it("adds a date to the transaction", () => {});
   });
 
-  describe("getCurrectTime method", () => {
+  describe("getFormattedDate method", () => {
     it("returns a formatted time", () => {
       const bankApp = new BankApp();
       const currentTime = new Date("2023-01-13");
