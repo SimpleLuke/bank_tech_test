@@ -174,11 +174,20 @@ describe("Bank App class", () => {
     it("prints out a table with no starting balance ", () => {
       const bankApp = new BankApp();
       const expectedOutput = `
-┌──────-------──┬─────----───┬──--------┬───----──────┐
-│ date          │ credit     │ debit    │ balance     │
-├───────-------─┼──────----──┼──────────┼-----------──┤
-│ 13-01-2023    │ N/A        │ N/A      │ 0.00        │
-└───────-------─┴────────-───┴──────----┴----------───┘
+date || credit || debit || balance
+13/01/2023 || N/A || N/A || 0.00
+`;
+      const logSpy = jest.spyOn(console, "log").mockImplementation(() => {});
+      bankApp.printStatement();
+      expect(logSpy).toHaveBeenCalledWith(expectedOutput);
+      logSpy.mockRestore();
+    });
+
+    it("prints out a table with starting balance ", () => {
+      const bankApp = new BankApp(1000);
+      const expectedOutput = `
+date || credit || debit || balance
+13/01/2023 || N/A || N/A || 1000.00
 `;
       const logSpy = jest.spyOn(console, "log").mockImplementation(() => {});
       bankApp.printStatement();

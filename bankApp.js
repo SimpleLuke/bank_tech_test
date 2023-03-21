@@ -51,13 +51,11 @@ class BankApp {
   };
 
   printStatement = () => {
-    console.log(`
-┌──────-------──┬─────----───┬──--------┬───----──────┐
-│ date          │ credit     │ debit    │ balance     │
-├───────-------─┼──────----──┼──────────┼-----------──┤
-│ 13-01-2023    │ N/A        │ N/A      │ 0.00        │
-└───────-------─┴────────-───┴──────----┴----------───┘
-`);
+    let result = `
+date || credit || debit || balance
+13/01/2023 || N/A || N/A || ${this.balance.toFixed(2)}
+`;
+    console.log(result);
   };
 }
 
