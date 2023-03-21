@@ -12,6 +12,6 @@ describe("Transaction class", () => {
       },
     ];
     transaction.createTransaction("13/01/2023", "credit", 100, 200);
-    expect(transaction.GetTransactionData()).toEqual(data);
+    expect(transaction.getTransactionData()).toEqual(data);
   });
 });

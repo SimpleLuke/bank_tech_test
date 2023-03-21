@@ -12,7 +12,7 @@ class Transaction {
     });
   };
 
-  GetTransactionData = () => {
+  getTransactionData = () => {
     return this.transactionData;
   };
 
