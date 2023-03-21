@@ -169,6 +169,14 @@ describe("Bank App class", () => {
   });
 
   describe("printStatement method", () => {
+    beforeEach(() => {
+      const mockDate1 = new Date("2023-01-13");
+      jest.spyOn(global, "Date").mockImplementation(() => mockDate1);
+    });
+
+    afterEach(() => {
+      jest.restoreAllMocks();
+    });
     it("prints out a table with no starting balance ", () => {
       const bankApp = new BankApp();
       const expectedOutput = `
@@ -267,6 +275,16 @@ date || credit || debit || balance
       bankApp.printStatement();
       expect(logSpy).toHaveBeenCalledWith(expectedOutput);
       logSpy.mockRestore();
+    });
+
+    it("adds a date to the transaction", () => {});
+  });
+
+  describe("getCurrectTime method", () => {
+    it("returns a formatted time", () => {
+      const bankApp = new BankApp();
+      const currentTime = new Date("2023-01-13");
+      expect(bankApp.getFormattedDate(currentTime)).toEqual("13/01/2023");
     });
   });
 });

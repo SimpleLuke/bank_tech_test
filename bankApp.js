@@ -4,6 +4,7 @@ class BankApp {
       throw new Error("Balance should be an Integer.");
     }
     this.startingBalance = balance;
+    this.startingDate = new Date();
     this.balance =
       typeof balance === "string"
         ? parseFloat(parseFloat(balance).toFixed(2))
@@ -28,7 +29,7 @@ class BankApp {
     this.balance = newBalance;
 
     this.transaction.unshift({
-      date: "13/01/2023",
+      date: this.getFormattedDate(new Date()),
       type: "debit",
       amount: amount.toFixed(2),
       balance: newBalance.toFixed(2),
@@ -56,7 +57,7 @@ class BankApp {
     this.balance = newBalance;
 
     this.transaction.unshift({
-      date: "13/01/2023",
+      date: this.getFormattedDate(new Date()),
       type: "credit",
       amount: amount.toFixed(2),
       balance: newBalance.toFixed(2),
@@ -67,9 +68,9 @@ class BankApp {
 
   printStatement = () => {
     let tableHead = "date || credit || debit || balance";
-    let startingRecord = `13/01/2023 || N/A || N/A || ${this.startingBalance.toFixed(
-      2
-    )}\n`;
+    let startingRecord = `${this.getFormattedDate(
+      this.startingDate
+    )} || N/A || N/A || ${this.startingBalance.toFixed(2)}\n`;
     let transactionRecord = "";
     this.transaction.forEach((element) => {
       if (element.type === "debit") {
@@ -90,6 +91,15 @@ class BankApp {
       : "\n" + tableHead + "\n" + startingRecord;
 
     console.log(result);
+  };
+
+  getFormattedDate = (currentTime) => {
+    const now = currentTime;
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, "0");
+    const day = String(now.getDate()).padStart(2, "0");
+    const formattedDate = `${day}/${month}/${year}`;
+    return formattedDate;
   };
 }
 
