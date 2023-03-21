@@ -52,7 +52,15 @@ class BankApp {
       return "The amount of withdrawal should be greater than 0.";
     }
 
-    this.balance = parseFloat((this.balance - amount).toFixed(2));
+    const newBalance = parseFloat((this.balance - amount).toFixed(2));
+    this.balance = newBalance;
+
+    this.transaction.unshift({
+      date: "13/01/2023",
+      type: "credit",
+      amount: amount.toFixed(2),
+      balance: newBalance.toFixed(2),
+    });
 
     return "Withdrawal processed successfully!";
   };
@@ -66,6 +74,10 @@ class BankApp {
     this.transaction.forEach((element) => {
       if (element.type === "debit") {
         transactionRecord += `${element.date} || N/A || ${element.amount} || ${element.balance}\n`;
+      }
+
+      if (element.type === "credit") {
+        transactionRecord += `${element.date} || ${element.amount} || N/A || ${element.balance}\n`;
       }
     });
     let result = transactionRecord
