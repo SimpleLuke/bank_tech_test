@@ -1,8 +1,6 @@
 const DateFormatter = require("./dateFormatter");
 const InputFormatter = require("./inputFormatter");
 
-require("./dateFormatter");
-
 class BankApp {
   constructor(balance = 0) {
     if (isNaN(balance)) {
