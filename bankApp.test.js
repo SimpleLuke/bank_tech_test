@@ -252,5 +252,21 @@ date || credit || debit || balance
       expect(logSpy).toHaveBeenCalledWith(expectedOutput);
       logSpy.mockRestore();
     });
+
+    it("prints out a table with deposit and withdrawal transactions", () => {
+      const bankApp = new BankApp(1000);
+      bankApp.makeWithdrawal(500);
+      bankApp.makeDeposit(100);
+      const expectedOutput = `
+date || credit || debit || balance
+13/01/2023 || N/A || 100.00 || 600.00
+13/01/2023 || 500.00 || N/A || 500.00
+13/01/2023 || N/A || N/A || 1000.00
+`;
+      const logSpy = jest.spyOn(console, "log").mockImplementation(() => {});
+      bankApp.printStatement();
+      expect(logSpy).toHaveBeenCalledWith(expectedOutput);
+      logSpy.mockRestore();
+    });
   });
 });
