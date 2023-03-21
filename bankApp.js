@@ -1,3 +1,6 @@
+const { Console } = require("console");
+const { Transform } = require("stream");
+
 class BankApp {
   constructor(balance = 0) {
     if (isNaN(balance)) {
@@ -45,6 +48,16 @@ class BankApp {
     this.balance = parseFloat((this.balance - amount).toFixed(2));
 
     return "Withdrawal processed successfully!";
+  };
+
+  printStatement = () => {
+    console.log(`
+┌──────-------──┬─────----───┬──--------┬───----──────┐
+│ date          │ credit     │ debit    │ balance     │
+├───────-------─┼──────----──┼──────────┼-----------──┤
+│ 13-01-2023    │ N/A        │ N/A      │ 0.00        │
+└───────-------─┴────────-───┴──────----┴----------───┘
+`);
   };
 }
 

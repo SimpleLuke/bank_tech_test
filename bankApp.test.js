@@ -1,4 +1,6 @@
 const BankApp = require("./bankApp");
+const { Console } = require("console");
+const { Transform } = require("stream");
 
 describe("Bank App class", () => {
   describe("class initialization", () => {
@@ -165,6 +167,23 @@ describe("Bank App class", () => {
       expect(bankApp.makeWithdrawal(100)).toEqual(
         "Withdrawal processed successfully!"
       );
+    });
+  });
+
+  describe("printStatement method", () => {
+    it("prints out a table with no starting balance ", () => {
+      const bankApp = new BankApp();
+      const expectedOutput = `
+┌──────-------──┬─────----───┬──--------┬───----──────┐
+│ date          │ credit     │ debit    │ balance     │
+├───────-------─┼──────----──┼──────────┼-----------──┤
+│ 13-01-2023    │ N/A        │ N/A      │ 0.00        │
+└───────-------─┴────────-───┴──────----┴----------───┘
+`;
+      const logSpy = jest.spyOn(console, "log").mockImplementation(() => {});
+      bankApp.printStatement();
+      expect(logSpy).toHaveBeenCalledWith(expectedOutput);
+      logSpy.mockRestore();
     });
   });
 });
