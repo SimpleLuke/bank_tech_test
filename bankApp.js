@@ -11,7 +11,6 @@ class BankApp {
     this.startingDate = this.getFormattedDate(new Date());
     this.balance = new InputFormatter().convertToFloat(balance);
     this.transaction = new Transaction();
-    // this.transaction = [];
   }
 
   getBalance = () => {
