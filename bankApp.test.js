@@ -163,7 +163,7 @@ describe("Bank App class", () => {
     it("returns a successful message", () => {
       const bankApp = new BankApp(1000);
       expect(bankApp.makeWithdrawal(100)).toEqual(
-        "withdrawal processed successfully!"
+        "Withdrawal processed successfully!"
       );
     });
   });
