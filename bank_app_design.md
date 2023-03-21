@@ -187,7 +187,6 @@ bankApp.makeWithdrawal(500); // When the withdrawal is made on 15-01-2023
 date || credit || debit || balance
 15/01/2023 || 500.00 || N/A || 500.00
 13/01/2023 || N/A || N/A || 1000.00
-
 */
 
 // 4.
