@@ -167,37 +167,27 @@ bankApp.makeWithdrawal(100); // return 'withdrawal processed successfully'
 const bankApp = new BankApp(1000); // Initialise the bank account on 13-01-2023
 bankApp.printStatement();
 /*
-┌──────-------──┬─────----───┬──--------┬───----──────┐
-│  date         │   credit   │  debit   │     balance │
-├───────-------─┼──────----──┼──────────┼-----------──┤
-│  13-01-2023   │   N/A      │  N/A     │   1000.00   │
-└───────-------─┴────────-───┴──────----┴----------───┘
+date || credit || debit || balance
+13/01/2023 || N/A || N/A || 1000.00
 */
 
 // 2.
 const bankApp = new BankApp(1000);
-bankApp.makeDeposit(1000); // When the deposit is made on 14-01-2023
+bankApp.makeDeposit(500); // When the deposit is made on 14-01-2023
 /*
-┌──────-------──┬─────----───┬──--------┬───----──────┐
-│  date         │   credit   │  debit   │     balance │
-├───────-------─┼──────----──┼──────────┼-----------──┤
-│  14/01/2023   │     N/A    │ 1000.00  │   2000.00   │ 
-│  13-01-2023   │   N/A      │  N/A     │   1000.00   │
-└───────-------─┴────────-───┴──────----┴----------───┘
+date || credit || debit || balance
+14/01/2023 || N/A || 500.00 || 1500.00
+13/01/2023 || N/A || N/A || 1000.00
 */
 
 // 3.
 const bankApp = new BankApp(1000);
-bankApp.makeWithdrawal(1000); // When the withdrawal is made on 15-01-2023
+bankApp.makeWithdrawal(500); // When the withdrawal is made on 15-01-2023
 /*
-┌──────-------──┬─────----───┬──--------┬───----──────┐
-│  date         │   credit   │  debit   │     balance │
-├───────-------─┼──────----──┼──────────┼-----------──┤
-│  15/01/2023   │   1000.00  │    N/A   │      0.00   │ 
-│  13-01-2023   │   N/A      │  N/A     │   1000.00   │
-│               │            │          │             │
-│               │            │          │             │
-└───────-------─┴────────-───┴──────----┴----------───┘
+date || credit || debit || balance
+15/01/2023 || 500.00 || N/A || 500.00
+13/01/2023 || N/A || N/A || 1000.00
+
 */
 
 // 4.
