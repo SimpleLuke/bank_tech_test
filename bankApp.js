@@ -8,7 +8,7 @@ class BankApp {
       throw new Error("Balance should be an Integer.");
     }
     this.startingBalance = balance;
-    this.startingDate = new Date();
+    this.startingDate = this.getFormattedDate(new Date());
     this.balance = new InputFormatter().convertToFloat(balance);
     this.transaction = new Transaction();
     // this.transaction = [];
@@ -70,21 +70,11 @@ class BankApp {
 
   printStatement = () => {
     let tableHead = "date || credit || debit || balance";
-    let startingRecord = `${this.getFormattedDate(
-      this.startingDate
-    )} || N/A || N/A || ${this.startingBalance.toFixed(2)}\n`;
-
-    let transactionRecord = "";
-    const transactionData = this.transaction.GetTransactionData();
-    transactionData.forEach((element) => {
-      if (element.type === "debit") {
-        transactionRecord += `${element.date} || N/A || ${element.amount} || ${element.balance}\n`;
-      }
-
-      if (element.type === "credit") {
-        transactionRecord += `${element.date} || ${element.amount} || N/A || ${element.balance}\n`;
-      }
-    });
+    const [startingRecord, transactionRecord] =
+      this.transaction.getTransactionStatement(
+        this.startingDate,
+        this.startingBalance
+      );
 
     let result = transactionRecord
       ? "\n" +
