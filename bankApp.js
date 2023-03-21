@@ -1,3 +1,7 @@
+const DateFormatter = require("./dateFormatter");
+
+require("./dateFormatter");
+
 class BankApp {
   constructor(balance = 0) {
     if (isNaN(balance)) {
@@ -96,11 +100,7 @@ class BankApp {
   };
 
   getFormattedDate = (currentTime) => {
-    const now = currentTime;
-    const year = now.getFullYear();
-    const month = String(now.getMonth() + 1).padStart(2, "0");
-    const day = String(now.getDate()).padStart(2, "0");
-    const formattedDate = `${day}/${month}/${year}`;
+    const formattedDate = new DateFormatter().getFormattedDate(currentTime);
     return formattedDate;
   };
 }
