@@ -1,6 +1,4 @@
 const BankApp = require("./bankApp");
-const { Console } = require("console");
-const { Transform } = require("stream");
 
 describe("Bank App class", () => {
   describe("class initialization", () => {
@@ -187,6 +185,20 @@ date || credit || debit || balance
       const bankApp = new BankApp(1000);
       const expectedOutput = `
 date || credit || debit || balance
+13/01/2023 || N/A || N/A || 1000.00
+`;
+      const logSpy = jest.spyOn(console, "log").mockImplementation(() => {});
+      bankApp.printStatement();
+      expect(logSpy).toHaveBeenCalledWith(expectedOutput);
+      logSpy.mockRestore();
+    });
+
+    it("prints out a table with a deposit transaction", () => {
+      const bankApp = new BankApp(1000);
+      bankApp.makeDeposit(500);
+      const expectedOutput = `
+date || credit || debit || balance
+13/01/2023 || N/A || 500.00 || 1500.00
 13/01/2023 || N/A || N/A || 1000.00
 `;
       const logSpy = jest.spyOn(console, "log").mockImplementation(() => {});
