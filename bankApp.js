@@ -37,13 +37,6 @@ class BankApp {
       newBalance
     );
 
-    // this.transaction.unshift({
-    //   date: this.getFormattedDate(new Date()),
-    //   type: "credit",
-    //   amount: amount.toFixed(2),
-    //   balance: newBalance.toFixed(2),
-    // });
-
     return "Deposit processed successfully!";
   };
 
@@ -71,13 +64,6 @@ class BankApp {
       amount,
       newBalance
     );
-
-    // this.transaction.unshift({
-    //   date: this.getFormattedDate(new Date()),
-    //   type: "debit",
-    //   amount: amount.toFixed(2),
-    //   balance: newBalance.toFixed(2),
-    // });
 
     return "Withdrawal processed successfully!";
   };
