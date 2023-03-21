@@ -24,12 +24,14 @@ class BankApp {
     if (amount < 0) {
       return "The amount of deposit should be greater than 0.";
     }
-    this.balance = parseFloat((this.balance + amount).toFixed(2));
+    const newBalance = parseFloat((this.balance + amount).toFixed(2));
+    this.balance = newBalance;
 
-    this.transaction.push({
+    this.transaction.unshift({
       date: "13/01/2023",
       type: "debit",
       amount: amount.toFixed(2),
+      balance: newBalance.toFixed(2),
     });
 
     return "Deposit processed successfully!";
@@ -63,13 +65,16 @@ class BankApp {
     let transactionRecord = "";
     this.transaction.forEach((element) => {
       if (element.type === "debit") {
-        transactionRecord += `${element.date} || N/A || ${
-          element.amount
-        } || ${this.balance.toFixed(2)}`;
+        transactionRecord += `${element.date} || N/A || ${element.amount} || ${element.balance}\n`;
       }
     });
     let result = transactionRecord
-      ? "\n" + tableHead + "\n" + transactionRecord + "\n" + startingRecord
+      ? "\n" +
+        tableHead +
+        "\n" +
+        transactionRecord.trim() +
+        "\n" +
+        startingRecord
       : "\n" + tableHead + "\n" + startingRecord;
 
     console.log(result);
