@@ -176,7 +176,7 @@ const bankApp = new BankApp(1000);
 bankApp.makeDeposit(500); // When the deposit is made on 14-01-2023
 /*
 date || credit || debit || balance
-14/01/2023 || N/A || 500.00 || 1500.00
+14/01/2023 || 500.00 || N/A || 1500.00
 13/01/2023 || N/A || N/A || 1000.00
 */
 
@@ -185,7 +185,7 @@ const bankApp = new BankApp(1000);
 bankApp.makeWithdrawal(500); // When the withdrawal is made on 15-01-2023
 /*
 date || credit || debit || balance
-15/01/2023 || 500.00 || N/A || 500.00
+15/01/2023 || N/A || 500.00 || 500.00
 13/01/2023 || N/A || N/A || 1000.00
 */
 
@@ -197,8 +197,8 @@ bankApp.makeDeposit(1000); // When the deposit is made on 14-01-2023
 bankApp.makeWithdrawal(1000); // When the withdrawal is made on 15-01-2023
 /*
 date || credit || debit || balance
-13/01/2023 || N/A || 100.00 || 600.00
-13/01/2023 || 500.00 || N/A || 500.00
+13/01/2023 || 100.00 || N/A || 600.00
+13/01/2023 || N/A || 500.00 || 500.00
 13/01/2023 || N/A || N/A || 1000.00
 */
 ```
