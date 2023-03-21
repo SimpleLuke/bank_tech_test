@@ -76,14 +76,12 @@ class BankApp {
         this.startingBalance
       );
 
-    let result = transactionRecord
-      ? "\n" +
-        tableHead +
-        "\n" +
-        transactionRecord.trim() +
-        "\n" +
-        startingRecord
-      : "\n" + tableHead + "\n" + startingRecord;
+    let result;
+    if (transactionRecord) {
+      result = `\n${tableHead}\n${transactionRecord.trim()}\n${startingRecord}`;
+    } else {
+      result = `\n${tableHead}\n${startingRecord}`;
+    }
 
     console.log(result);
   };
