@@ -1,4 +1,5 @@
 const DateFormatter = require("./dateFormatter");
+const InputFormatter = require("./inputFormatter");
 
 require("./dateFormatter");
 
@@ -9,10 +10,7 @@ class BankApp {
     }
     this.startingBalance = balance;
     this.startingDate = new Date();
-    this.balance =
-      typeof balance === "string"
-        ? parseFloat(parseFloat(balance).toFixed(2))
-        : parseFloat(balance.toFixed(2));
+    this.balance = new InputFormatter().convertToFloat(balance);
     this.transaction = [];
   }
 
