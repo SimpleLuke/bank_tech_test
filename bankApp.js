@@ -1,6 +1,6 @@
-const DateFormatter = require("./dateFormatter");
-const InputFormatter = require("./inputFormatter");
-const Transaction = require("./transaction");
+const DateFormatter = require("./src/dateFormatter/dateFormatter");
+const InputFormatter = require("./src/inputFormatter/inputFormatter");
+const Transaction = require("./src/transaction/transaction");
 
 class BankApp {
   constructor(balance = 0) {
