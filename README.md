@@ -38,9 +38,15 @@ The application was also built using Object-Oriented Programming (OOP) principle
 
 ## Code Structure
 
-The code is structured into a single class named BankApp.
+The main class of this application is `BankApp`. This class interacts with the user and states of the application. 
 This class contains the functionality of the application, such as getting the balance, making deposits and withdrawals, and printing bank statements.
-The class also contains helper methods for formatting the date and storing transactions.
+The class also requires other helper classes for formatting the date, input and storing transactions.
+
+- `InputFormatter`: This class handles the formatting of user input to ensure that it meets the application's requirements. It is used by BankApp to convert user inputs such as balance amounts and transaction amounts.
+- `DateFormatter`: This class handles the formatting of dates to ensure that they are in the correct format for the application. It is used by BankApp to parse and format dates in transaction records.
+- `Transaction`: This class stores transaction records. It contains information such as the date, transaction type, and transaction amount.
+
+These helper classes are designed to work together with BankApp to provide a seamless user experience while ensuring data consistency throughout the application.
 
 ## Examples
 
@@ -76,3 +82,4 @@ bankApp.printStatement()
 ```
 
 ## Screenshot
+<img src="./preview/bankApp_screenshot.jpg" width="400" />
