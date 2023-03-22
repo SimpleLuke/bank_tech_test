@@ -82,4 +82,4 @@ bankApp.printStatement()
 ```
 
 ## Screenshot
-<img src="./preview/bankApp_screenshot.jpg" width="400" />
+<img src="./preview/bankApp_screenshot.png" width="400" />
